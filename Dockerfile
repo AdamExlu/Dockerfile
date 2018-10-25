@@ -5,4 +5,5 @@ LABEL description="LNMP setup"
 # install php env
 WORKDIR /root/src/
 RUN yum install -y wget vim net-tools screen git openssl
-RUN wget http://soft.vpser.net/lnmp/lnmp1.5.tar.gz -cO lnmp1.5.tar.gz && tar zxf lnmp1.5.tar.gz && cd lnmp1.5 && LNMP_Auto="y" DBSelect="9" DB_Root_Password="0220f96dba" InstallInnodb="y" PHPSelect="8" SelectMalloc="1" ./install.sh lnmp
+COPY lnmp1.5.tar.gz /root/src/lnmp1.5.tar.gz
+RUN tar zxf lnmp1.5.tar.gz && cd lnmp1.5 && LNMP_Auto="y" DBSelect="9" DB_Root_Password="0220f96dba" InstallInnodb="y" PHPSelect="8" SelectMalloc="1" ./install.sh lnmp
